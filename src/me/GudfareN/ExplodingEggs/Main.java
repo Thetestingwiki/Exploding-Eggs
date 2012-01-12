@@ -15,6 +15,8 @@ public class Main extends JavaPlugin {
     
 	public void onEnable() {
         log.info("[Exploding Eggs] has been enabled!");
+        log.info("[Exploding Eggs] Author: GudfarEN");
+        log.info("[Exploding Eggs] Version: 1");
         PluginManager pm = getServer().getPluginManager();
         pm.registerEvent(Event.Type.CREATURE_SPAWN, eggListener, Event.Priority.Normal, this);
         pm.registerEvent(Event.Type.PLAYER_EGG_THROW, playerListener, Event.Priority.Normal, this);
