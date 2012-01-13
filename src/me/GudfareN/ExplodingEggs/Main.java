@@ -11,7 +11,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class Main extends JavaPlugin {
 	private static final Logger log= Logger.getLogger("Minecraft");
-	public static boolean isHatching = false;
+	public static boolean isHatching = true;
 	private final Egg eggListener = new Egg(this);
 	private final Explode playerListener = new Explode(this);
     
