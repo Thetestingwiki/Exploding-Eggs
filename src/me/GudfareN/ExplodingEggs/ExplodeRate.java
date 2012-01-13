@@ -10,8 +10,9 @@ public class ExplodeRate extends PlayerListener {
     public ExplodeRate(Main instance) {
         plugin = instance;
     }
+    
     public void onPlayerEggThrow(PlayerEggThrowEvent event){
-    	event.setHatching(true); //Always explode
-    	event.getEgg().setBounce(true);
+    	//event.getEntity().getWorld().createExplosion(event.getLocation(), 2); //Where to explode and radius
+    	event.getEgg().remove();
     }
 }
