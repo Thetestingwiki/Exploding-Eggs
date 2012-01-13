@@ -2,20 +2,22 @@ package me.GudfareN.ExplodingEggs;
 
 import java.util.logging.Logger;
 
+import me.GudfareN.ExplodingEggs.Egg;
 import me.GudfareN.ExplodingEggs.Explode;
-import me.GudfareN.ExplodingEggs.ExplodeRate;
+
 import org.bukkit.event.Event;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class Main extends JavaPlugin {
 	private static final Logger log= Logger.getLogger("Minecraft");
-	private final Explode eggListener = new Explode(this);
-	private final ExplodeRate playerListener = new ExplodeRate(this);
+	public static boolean isHatching = false;
+	private final Egg eggListener = new Egg(this);
+	private final Explode playerListener = new Explode(this);
     
 	public void onEnable() {
         log.info("[Exploding Eggs] has been enabled!");
-        log.info("[Exploding Eggs] Author: GudfarEN");
+        log.info("[Exploding Eggs] Author: GudfareN");
         log.info("[Exploding Eggs] Version: 1");
         PluginManager pm = getServer().getPluginManager();
         pm.registerEvent(Event.Type.CREATURE_SPAWN, eggListener, Event.Priority.Normal, this);
