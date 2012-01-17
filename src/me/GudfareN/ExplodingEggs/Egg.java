@@ -18,8 +18,7 @@ public class Egg extends EntityListener {
     public void onCreatureSpawn(CreatureSpawnEvent event)
     {
         if (event.getSpawnReason() == SpawnReason.EGG) {
-            event.setCancelled(true); //Cancel Egg Spawn
-            //event.getEntity().getWorld().createExplosion(event.getLocation(), 2); //Where to explode and radius
+            event.setCancelled(true);
             
   }
  }

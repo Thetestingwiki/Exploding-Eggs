@@ -2,3 +2,9 @@ name:  ExplodingEggs
 version:  1
 author:  GudfareN
 main: me.GudfareN.ExplodingEggs.Main
+
+commands:
+   ee:
+      description: Toggle egg explosion
+      permission: ee.toggle
+      usage: /ee
