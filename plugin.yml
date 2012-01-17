@@ -8,3 +8,7 @@ commands:
       description: Toggle egg explosion
       permission: ee.toggle
       usage: /ee
+   er:
+      description: Toggle random explosion
+      permission: ee.toggleRandom
+      usage: /er

@@ -41,6 +41,7 @@ public class Explode extends PlayerListener implements CommandExecutor {
         }
         
     }
+    
     public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args){
     	if(cmd.getName().equalsIgnoreCase("ee")){
     		Player player = (Player) sender;
@@ -50,22 +51,22 @@ public class Explode extends PlayerListener implements CommandExecutor {
     	return false; 
     }
     
-    
-    //Currently working on this. Not working atm:
     public void onPlayerEggThrow(PlayerEggThrowEvent event) {
     	if (ee.containsKey(event.getPlayer())){
     		if (ee.containsValue(true)){
-    		event.getEgg().remove();
-    		Egg egg = event.getEgg();
-    		event.setHatching(true);
-    		event.getEgg().getWorld().createExplosion(egg.getLocation(), 2);
-    		}
+        		event.getEgg().remove();
+        		Egg egg = event.getEgg();
+        		event.setHatching(true);
+        		event.getEgg().getWorld().createExplosion(egg.getLocation(), 2);
     	}else{
-    		
-    		
-    	}    	
+
+    		}
+    	}
     }
 }
+
+
+    
     	
 
 

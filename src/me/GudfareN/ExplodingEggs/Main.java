@@ -14,7 +14,6 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class Main extends JavaPlugin {
 	private static final Logger log= Logger.getLogger("Minecraft");
-	public static boolean isHatching = true;
 	private final Egg eggListener = new Egg(this);
 	private final Explode playerListener = new Explode(this);
 	
@@ -23,6 +22,7 @@ public class Main extends JavaPlugin {
 	File localizationDir = new File("plugins/ExplodingEggs");
 	 
 	private Explode myExecutor;
+	private Random myExecutor1;
     
 	public void onEnable() {
 		log.info("[Exploding Eggs] Version 1.1 has been enabled!");
@@ -40,6 +40,9 @@ public class Main extends JavaPlugin {
 		
 		myExecutor = new Explode(this);
         getCommand("ee").setExecutor(myExecutor);
+        
+        myExecutor1 = new Random();
+        getCommand("er").setExecutor(myExecutor1);
            
         
     }
