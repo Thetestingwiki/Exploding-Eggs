@@ -10,26 +10,32 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.event.Event;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.plugin.PluginDescriptionFile;
 
 
 public class Main extends JavaPlugin {
-	private static final Logger log= Logger.getLogger("Minecraft");
-	private final Egg eggListener = new Egg(this);
-	private final Explode playerListener = new Explode(this);
+	public final Logger log= Logger.getLogger("Minecraft");
+	public final Egg eggListener = new Egg(this);
+	public final Explode playerListener = new Explode(this);
+	public final Toggle playerListener2 = new Toggle();
 	
 	FileConfiguration localizationConfig = null;
 	File localizationFile = null;
 	File localizationDir = new File("plugins/ExplodingEggs");
 	 
-	private Explode myExecutor;
+	private Toggle myExecutor;
 	private Random myExecutor1;
     
 	public void onEnable() {
-		log.info("[Exploding Eggs] Version 1.1 has been enabled!");
-       	log.info("[Exploding Eggs] Author: GudfareN");
+		PluginDescriptionFile pdfFile = this.getDescription();
+		this.log.info(pdfFile.getName() + " version "+ pdfFile.getVersion() +" is now enabled");
+		this.log.info(pdfFile.getName() + " Author(s): +"+ pdfFile.getAuthors() +" is now enabled");
+		//log.info("[Exploding Eggs] Version 1.1 has been enabled!");
+       	//log.info("[Exploding Eggs] Author: GudfareN");
         PluginManager pm = getServer().getPluginManager();
         pm.registerEvent(Event.Type.CREATURE_SPAWN, eggListener, Event.Priority.Normal, this);
         pm.registerEvent(Event.Type.PLAYER_EGG_THROW, playerListener, Event.Priority.Normal, this);
+        //pm.registerEvent(Event.Type.PLAYER_EGG_THROW, playerListener2, Event.Priority.Normal, this);
         
 		String mainPath = "options.";
 		this.getConfig().addDefault(mainPath + "Egg explosion radius:", 2);
@@ -38,7 +44,7 @@ public class Main extends JavaPlugin {
 		
 		this.getConfig().set("Egg explosion radius:", 2);
 		
-		myExecutor = new Explode(this);
+		myExecutor = new Toggle();
         getCommand("ee").setExecutor(myExecutor);
         
         myExecutor1 = new Random();
@@ -48,7 +54,9 @@ public class Main extends JavaPlugin {
     }
    
     public void onDisable() {
-       log.info("[Exploding Eggs] Version 1.1 has been disabled!");
+    	PluginDescriptionFile pdfFile = this.getDescription();
+    	this.log.info(pdfFile.getName() + " is now disabled");
+      //log.info("[Exploding Eggs] Version 1.1 has been disabled!");
     }
     }
 

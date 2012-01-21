@@ -3,7 +3,7 @@ package me.GudfareN.ExplodingEggs;
 import org.bukkit.event.entity.CreatureSpawnEvent;
 import org.bukkit.event.entity.CreatureSpawnEvent.SpawnReason;
 import org.bukkit.event.entity.EntityListener;
-import me.GudfareN.ExplodingEggs.Explode;
+import me.GudfareN.ExplodingEggs.Toggle;
 
 
 public class Egg extends EntityListener {
@@ -18,7 +18,7 @@ public class Egg extends EntityListener {
     
     public void onCreatureSpawn(CreatureSpawnEvent event)
     {
-    	if (Explode.ee.containsValue(true)){
+    	if (Toggle.ee.containsValue(true)){
             if (event.getSpawnReason() == SpawnReason.EGG) {
                 event.setCancelled(true);
     	}else{
