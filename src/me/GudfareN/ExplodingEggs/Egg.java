@@ -1,23 +1,17 @@
 package me.GudfareN.ExplodingEggs;
 
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
+import org.bukkit.event.Listener;
 import org.bukkit.event.entity.CreatureSpawnEvent;
 import org.bukkit.event.entity.CreatureSpawnEvent.SpawnReason;
-import org.bukkit.event.entity.EntityListener;
 import me.GudfareN.ExplodingEggs.Toggle;
 
 
-public class Egg extends EntityListener {
-
-    public static Main plugin;
-
-    public Egg(Main instance) {
-        plugin = instance;
-    }
-    
-    
-    
-    public void onCreatureSpawn(CreatureSpawnEvent event)
-    {
+public class Egg implements Listener {
+	
+    @EventHandler(priority = EventPriority.HIGH)
+    public void highLogin(CreatureSpawnEvent event) {
     	if (Toggle.ee.containsValue(true)){
             if (event.getSpawnReason() == SpawnReason.EGG) {
                 event.setCancelled(true);
@@ -27,5 +21,8 @@ public class Egg extends EntityListener {
     }     
     }
    }
-  }
+    }
 }
+
+
+

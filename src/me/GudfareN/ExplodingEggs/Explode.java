@@ -1,21 +1,16 @@
 package me.GudfareN.ExplodingEggs;
 
 import org.bukkit.entity.Egg;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
+import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerEggThrowEvent;
-import org.bukkit.event.player.PlayerListener;
-import me.GudfareN.ExplodingEggs.Main;
+//import me.GudfareN.ExplodingEggs.Main;
 
-public class Explode extends PlayerListener{
+public class Explode implements Listener{
 	
-	
-	
-	public static Main plugin;
-
-    public Explode(Main instance) {
-        plugin = instance;
-    }
-    
-    public void onPlayerEggThrow(PlayerEggThrowEvent event) {
+    @EventHandler(priority = EventPriority.NORMAL)
+    public void ex(PlayerEggThrowEvent event) {
     	if (Toggle.ee.containsKey(event.getPlayer())){
     		if (Toggle.ee.containsValue(true)){
         		event.getEgg().remove();
@@ -28,6 +23,8 @@ public class Explode extends PlayerListener{
     	}
     }
 }
+    	
+
 
 
     

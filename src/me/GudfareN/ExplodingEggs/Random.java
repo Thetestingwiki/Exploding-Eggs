@@ -7,9 +7,9 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.event.player.PlayerListener;
+import org.bukkit.event.Listener;
 
-public class Random extends PlayerListener implements CommandExecutor{
+public class Random implements Listener, CommandExecutor{
 
     public static HashMap<Player, Boolean> er = new HashMap<Player, Boolean>();
     

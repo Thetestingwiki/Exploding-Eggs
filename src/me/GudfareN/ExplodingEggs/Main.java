@@ -7,17 +7,16 @@ import me.GudfareN.ExplodingEggs.Egg;
 import me.GudfareN.ExplodingEggs.Explode;
 
 import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.event.Event;
-import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.plugin.PluginDescriptionFile;
 
+import org.bukkit.event.Listener;
 
-public class Main extends JavaPlugin {
+
+public class Main extends JavaPlugin implements Listener {
+	public static Main plugin;
 	public final Logger log= Logger.getLogger("Minecraft");
-	public final Egg eggListener = new Egg(this);
-	public final Explode playerListener = new Explode(this);
-	public final Toggle playerListener2 = new Toggle();
+	//public final Toggle playerListener2 = new Toggle();
 	
 	FileConfiguration localizationConfig = null;
 	File localizationFile = null;
@@ -25,17 +24,14 @@ public class Main extends JavaPlugin {
 	 
 	private Toggle myExecutor;
 	private Random myExecutor1;
+	
     
 	public void onEnable() {
 		PluginDescriptionFile pdfFile = this.getDescription();
 		this.log.info(pdfFile.getName() + " version "+ pdfFile.getVersion() +" is now enabled");
-		this.log.info(pdfFile.getName() + " Author(s): +"+ pdfFile.getAuthors() +" is now enabled");
-		//log.info("[Exploding Eggs] Version 1.1 has been enabled!");
-       	//log.info("[Exploding Eggs] Author: GudfareN");
-        PluginManager pm = getServer().getPluginManager();
-        pm.registerEvent(Event.Type.CREATURE_SPAWN, eggListener, Event.Priority.Normal, this);
-        pm.registerEvent(Event.Type.PLAYER_EGG_THROW, playerListener, Event.Priority.Normal, this);
-        //pm.registerEvent(Event.Type.PLAYER_EGG_THROW, playerListener2, Event.Priority.Normal, this);
+		this.log.info(pdfFile.getName() + " Author(s): +"+ pdfFile.getAuthors());
+		getServer().getPluginManager().registerEvents(new Explode(), this);
+		getServer().getPluginManager().registerEvents(new Egg(), this);
         
 		String mainPath = "options.";
 		this.getConfig().addDefault(mainPath + "Egg explosion radius:", 2);
@@ -56,7 +52,6 @@ public class Main extends JavaPlugin {
     public void onDisable() {
     	PluginDescriptionFile pdfFile = this.getDescription();
     	this.log.info(pdfFile.getName() + " is now disabled");
-      //log.info("[Exploding Eggs] Version 1.1 has been disabled!");
     }
     }
 
