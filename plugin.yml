@@ -8,3 +8,6 @@ commands:
       description: Toggle egg explosion
       permission: ee.toggle
       usage: /ee
+   eeinfo:
+      description: Toggle egg explosion
+      usage: /eeinfo

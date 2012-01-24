@@ -12,7 +12,7 @@ public class LoadSettings {
 
 		exrad = properties.getInteger("Egg-explosion-radius", 2);
 		ran = properties.getString("Random-Explosion", "false");
-		chance = properties.getInteger("Chance-for-Explosion", 7);
+		chance = properties.getInteger("Chance-for-Explosion", 40);
 		properties.save("===ExplodingEggs Main Configuration===");
 	}
 

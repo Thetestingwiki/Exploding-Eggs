@@ -12,14 +12,13 @@ public class Explode implements Listener {
 
 	@EventHandler(priority = EventPriority.NORMAL)
 	public void ex(PlayerEggThrowEvent event) {
-		// String ran = LoadSettings.ran;
 		String ran = LoadSettings.ran;
 		int chance = LoadSettings.chance;
 		if (ran.contentEquals("true")) {
 			if (true) {
 				Random gen = new Random();
-				int r = gen.nextInt(10);
-				if (r > chance) {
+				int r = gen.nextInt(100);
+				if (r < chance) {
 					int exrad = LoadSettings.exrad;
 					if (Toggle.ee.containsKey(event.getPlayer())) {
 						if (Toggle.ee.containsValue(true)) {

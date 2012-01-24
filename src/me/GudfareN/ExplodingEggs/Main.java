@@ -27,15 +27,14 @@ public class Main extends JavaPlugin {
 		LoadSettings.loadMain();
 
 		PluginDescriptionFile pdfFile = this.getDescription();
-		this.log.info(pdfFile.getName() + " Author(s): +"
-				+ pdfFile.getAuthors());
+		this.log.info(pdfFile.getName() + " Author(s): " + pdfFile.getAuthors());
 		getServer().getPluginManager().registerEvents(new Explode(), this);
 		getServer().getPluginManager().registerEvents(new Egg(), this);
-		getServer().getPluginManager()
-				.registerEvents(new BlockListener(), this);
+		getServer().getPluginManager().registerEvents(new BlockListener(), this);
 
 		myExecutor = new Toggle();
 		getCommand("ee").setExecutor(myExecutor);
+		getCommand("eeinfo").setExecutor(myExecutor);
 	}
 
 	public void onDisable() {
