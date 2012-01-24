@@ -12,3 +12,6 @@ commands:
       description: Toggle random explosion
       permission: ee.toggleRandom
       usage: /er
+   ee info:
+      description: Iformation about ExplodingEggs
+      usage: /einfo

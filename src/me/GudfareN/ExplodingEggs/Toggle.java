@@ -37,12 +37,11 @@ public class Toggle implements Listener, CommandExecutor {
     		togglePluginState(player);
     		return true;
     	} 
-		if(cmd.getName().equalsIgnoreCase("ee info")){
+		if(cmd.getName().equalsIgnoreCase("einfo")){
 			Player player = (Player) sender;
 			player.sendMessage(ChatColor.AQUA + "Author: GudfareN");
 			player.sendMessage(ChatColor.AQUA + "Version: 1.1");
 		}
     	return false; 
     }
-	
 }
