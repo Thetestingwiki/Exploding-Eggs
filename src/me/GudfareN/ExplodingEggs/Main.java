@@ -8,37 +8,37 @@ import me.GudfareN.ExplodingEggs.Egg;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.plugin.PluginDescriptionFile;
 
-
 public class Main extends JavaPlugin {
 	public static Main plugin;
 	static String maindir = "plugins/ExplodingEggs/";
-	static File settings = new File (maindir + "settings");
-	public final Logger log= Logger.getLogger("Minecraft");
+	static File settings = new File(maindir + "settings");
+	public final Logger log = Logger.getLogger("Minecraft");
 	private Toggle myExecutor;
 	public int exrad;
 
 	public void onEnable() {
-		new File (maindir).mkdir();
-		if(!settings.exists())
+		new File(maindir).mkdir();
+		if (!settings.exists())
 			try {
 				settings.createNewFile();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		LoadSettings.loadMain();
-		
+
 		PluginDescriptionFile pdfFile = this.getDescription();
-		this.log.info(pdfFile.getName() + " Author(s): +"+ pdfFile.getAuthors());
+		this.log.info(pdfFile.getName() + " Author(s): +"
+				+ pdfFile.getAuthors());
 		getServer().getPluginManager().registerEvents(new Explode(), this);
 		getServer().getPluginManager().registerEvents(new Egg(), this);
-		getServer().getPluginManager().registerEvents(new BlockListener(), this);
-		
-		myExecutor = new Toggle();
-        getCommand("ee").setExecutor(myExecutor);
-}
-   
-    public void onDisable() {
-    }
-    
-   }
+		getServer().getPluginManager()
+				.registerEvents(new BlockListener(), this);
 
+		myExecutor = new Toggle();
+		getCommand("ee").setExecutor(myExecutor);
+	}
+
+	public void onDisable() {
+	}
+
+}
