@@ -15,7 +15,6 @@ public class Main extends JavaPlugin {
 	static File settings = new File (maindir + "settings");
 	public final Logger log= Logger.getLogger("Minecraft");
 	private Toggle myExecutor;
-	private Random myExecutor1;
 	public int exrad;
 
 	public void onEnable() {
@@ -36,9 +35,6 @@ public class Main extends JavaPlugin {
 		
 		myExecutor = new Toggle();
         getCommand("ee").setExecutor(myExecutor);
-        
-        myExecutor1 = new Random();
-        getCommand("er").setExecutor(myExecutor1);
 }
    
     public void onDisable() {
