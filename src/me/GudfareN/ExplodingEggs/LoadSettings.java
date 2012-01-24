@@ -2,6 +2,7 @@ package me.GudfareN.ExplodingEggs;
 
 public class LoadSettings {
 	static int exrad;
+	static int chance;
 	static String ran;
 
 	public static void loadMain() {
@@ -11,6 +12,7 @@ public class LoadSettings {
 
 		exrad = properties.getInteger("Egg-explosion-radius", 2);
 		ran = properties.getString("Random-Explosion", "false");
+		chance = properties.getInteger("Chance-for-Explosion", 7);
 		properties.save("===ExplodingEggs Main Configuration===");
 	}
 
