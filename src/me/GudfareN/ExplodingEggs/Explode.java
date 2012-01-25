@@ -9,9 +9,11 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerEggThrowEvent;
 
 public class Explode implements Listener {
+	public static Explode Explo;
 
 	@EventHandler(priority = EventPriority.NORMAL)
 	public void ex(PlayerEggThrowEvent event) {
+		Egg egg = event.getEgg();
 		String ran = LoadSettings.ran;
 		int chance = LoadSettings.chance;
 		if (ran.contentEquals("true")) {
@@ -23,9 +25,10 @@ public class Explode implements Listener {
 					if (Toggle.ee.containsKey(event.getPlayer())) {
 						if (Toggle.ee.containsValue(true)) {
 							event.getEgg().remove();
-							Egg egg = event.getEgg();
+							// Egg egg = event.getEgg();
 							event.setHatching(true);
-							event.getEgg().getWorld().createExplosion(egg.getLocation(), exrad);
+							event.getEgg().getWorld()
+									.createExplosion(egg.getLocation(), exrad);
 						}
 					}
 				}
@@ -35,9 +38,10 @@ public class Explode implements Listener {
 				if (Toggle.ee.containsValue(true)) {
 					int exrad = LoadSettings.exrad;
 					event.getEgg().remove();
-					Egg egg = event.getEgg();
+					// Egg egg = event.getEgg();
 					event.setHatching(true);
-					event.getEgg().getWorld().createExplosion(egg.getLocation(), exrad);
+					event.getEgg().getWorld()
+							.createExplosion(egg.getLocation(), exrad);
 				}
 			}
 		}

@@ -30,7 +30,7 @@ public class Main extends JavaPlugin {
 		this.log.info(pdfFile.getName() + " Author(s): " + pdfFile.getAuthors());
 		getServer().getPluginManager().registerEvents(new Explode(), this);
 		getServer().getPluginManager().registerEvents(new Egg(), this);
-		getServer().getPluginManager().registerEvents(new BlockListener(), this);
+		getServer().getPluginManager().registerEvents(new Damage(), this);
 
 		myExecutor = new Toggle();
 		getCommand("ee").setExecutor(myExecutor);
