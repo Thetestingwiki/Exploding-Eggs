@@ -25,7 +25,8 @@ public class Toggle implements Listener, CommandExecutor {
 
 			}
 		} else {
-			ee.put(player, true); // If you want plugin enabled by default change this value to false.
+			ee.put(player, true); // If you want plugin enabled by default
+									// change this value to false.
 			player.sendMessage(ChatColor.AQUA + "Egg explosion enabled");
 		}
 
