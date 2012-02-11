@@ -36,7 +36,11 @@ public class Toggle implements Listener, CommandExecutor {
 			String commandLabel, String[] args) {
 		if (cmd.getName().equalsIgnoreCase("ee")) {
 			Player player = (Player) sender;
+			if (player.hasPermission("ee.toggle")){
 			togglePluginState(player);
+			}else{
+				player.sendMessage(ChatColor.RED + "You don't have permissions to do that!");
+			}
 			return true;
 		}
 		if (cmd.getName().equalsIgnoreCase("eeinfo")) {

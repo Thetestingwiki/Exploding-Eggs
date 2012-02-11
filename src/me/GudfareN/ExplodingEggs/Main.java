@@ -35,6 +35,7 @@ public class Main extends JavaPlugin {
 		myExecutor = new Toggle();
 		getCommand("ee").setExecutor(myExecutor);
 		getCommand("eeinfo").setExecutor(myExecutor);
+		
 	}
 
 	public void onDisable() {
