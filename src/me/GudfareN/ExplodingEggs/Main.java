@@ -1,7 +1,6 @@
 package me.GudfareN.ExplodingEggs;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.logging.Logger;
 
 import me.GudfareN.ExplodingEggs.Egg;
@@ -18,12 +17,6 @@ public class Main extends JavaPlugin {
 
 	public void onEnable() {
 		new File(maindir).mkdir();
-		if (!settings.exists())
-			try {
-				settings.createNewFile();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
 		LoadSettings.loadMain();
 
 		PluginDescriptionFile pdfFile = this.getDescription();

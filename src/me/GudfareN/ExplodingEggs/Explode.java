@@ -3,6 +3,7 @@ package me.GudfareN.ExplodingEggs;
 import java.util.Random;
 
 import org.bukkit.entity.Egg;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
@@ -13,6 +14,7 @@ public class Explode implements Listener {
 
 	@EventHandler(priority = EventPriority.NORMAL)
 	public void ex(PlayerEggThrowEvent event) {
+		Player player = event.getPlayer();
 		Egg egg = event.getEgg();
 		String ran = LoadSettings.ran;
 		int chance = LoadSettings.chance;
@@ -24,25 +26,26 @@ public class Explode implements Listener {
 					int exrad = LoadSettings.exrad;
 					if (Toggle.ee.containsKey(event.getPlayer())) {
 						if (Toggle.ee.containsValue(true)) {
-							event.getEgg().remove();
-							// Egg egg = event.getEgg();
-							event.setHatching(true);
-							event.getEgg().getWorld()
-									.createExplosion(egg.getLocation(), exrad);
+								event.getEgg().remove();
+								event.setHatching(true);
+								egg.getWorld().createExplosion(egg.getLocation(), exrad);
+								player.damage(2, egg);
+							}else{
+								egg.remove();
+								event.setHatching(true);
+								egg.getWorld().createExplosion(egg.getLocation(), exrad);
+							}
 						}
 					}
 				}
-			}
 		} else {
 			if (Toggle.ee.containsKey(event.getPlayer())) {
 				if (Toggle.ee.containsValue(true)) {
 					int exrad = LoadSettings.exrad;
-					event.getEgg().remove();
-					// Egg egg = event.getEgg();
-					event.setHatching(true);
-					event.getEgg().getWorld()
-							.createExplosion(egg.getLocation(), exrad);
-				}
+							event.getEgg().remove();
+							event.setHatching(true);
+							egg.getWorld().createExplosion(egg.getLocation(), exrad);
+						}
 			}
 		}
 	}
